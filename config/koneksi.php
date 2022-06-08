@@ -1,8 +1,8 @@
 <?php
 //variabel koneksi
-$konek = mysqli_connect("localhost","root","","sppsekolah");
+$koneksi = mysqli_connect("localhost","root","","sppsekolah");
 
-if(!$konek){
+if(!$koneksi){
 	echo "Koneksi Database Gagal...!!!";
 }
 ?>

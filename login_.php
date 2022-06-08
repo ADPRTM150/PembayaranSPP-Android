@@ -8,7 +8,7 @@ if (isset($_POST['simpan'])) {
         echo "Form belum lengkap!!";
     } else {
         include "config/koneksi.php";
-        $sqlLogin = mysqli_query($konek, "SELECT * FROM admin 
+        $sqlLogin = mysqli_query($koneksi, "SELECT * FROM admin 
 						WHERE username='$user' AND password='$pass'");
         $jml = mysqli_num_rows($sqlLogin);
         $d = mysqli_fetch_array($sqlLogin);
