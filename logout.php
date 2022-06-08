@@ -1,7 +1,8 @@
 <?php
 session_start();
+$_SESSION =[];
+session_unset();
 session_destroy();
-
-//kembali/redirect ke halaman login.php
-header('location:login.php');
+header("location:login.php");
+exit;
 ?>

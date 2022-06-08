@@ -4,9 +4,7 @@ if (isset($_POST['simpan'])) {
     $user = $_POST['username'];
     $pass = $_POST['password'];
 
-    if ($user == '' || $pass == '') {
-        echo "Form belum lengkap!!";
-    } else {
+   
         include "config/koneksi.php";
         $sqlLogin = mysqli_query($koneksi, "SELECT * FROM admin 
 						WHERE username='$user' AND password='$pass'");
@@ -23,4 +21,4 @@ if (isset($_POST['simpan'])) {
             header("location:login.php");
         }
     }
-}
+

@@ -1,5 +1,7 @@
-<?php include "template/header.php";
-$username = $_SESSION['username']; ?>
+<?php
+include "template/header.php";
+$username = $_SESSION['username'];
+?>
 
 <div class="container-fluid">
     <h1 class="h4 text-gray-900 mb-4" align="center"></h1>
@@ -17,7 +19,7 @@ $username = $_SESSION['username']; ?>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Pembayaran</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -62,4 +64,6 @@ $username = $_SESSION['username']; ?>
 
 </div>
 
-<?php include "template/footer.php"; ?>
+<?php
+include "template/footer.php";
+?>
