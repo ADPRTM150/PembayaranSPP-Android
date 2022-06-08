@@ -35,18 +35,16 @@ $username = $_SESSION['username']; ?>
                             <?php
                             include 'config/koneksi.php';
                             $no = 1;
-                            $data = mysqli_query($koneksi, "select * from bukti");
+                            $data = mysqli_query($koneksi, "select * from buktii");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
                                 <tr>
                                     <td align="center"><?php echo $no++; ?></td>
                                     <td><?php echo $d['namasiswa']; ?></td>
                                     <td><?php echo $d['tglbayar']; ?></td>
-                                    <td><?php echo $d['ket']; ?></td>
-                                    <td><?php echo $d['biaya']; ?></td>
+                                    <td><?php echo $d['bktbayar']; ?></td>
                                     <td align="center">
-                                        <a href="" data-toggle="modal" data-target="#myModalediteo<?php echo $d['id_eo']; ?>" data-whatever=""><button class="btn btn-secondary col-5"><i class="fas fa-edit"></i></button></a>
-                                        <a href="" data-toggle="modal" data-target="#myModalhapuseo<?php echo $d['id_eo']; ?>" data-whatever=""><button class="btn btn-secondary col-5" name="hapuseo"><i class="fas fa-trash-alt"></i></button></a>
+                                        <a href="" data-toggle="modal" data-target="#myModalediteo<?php echo $d['id_eo']; ?>" data-whatever=""><button class="btn btn-secondary"><i class="fas fa-print"></i></button></a>
                                 </tr>
                             <?php
                             }
