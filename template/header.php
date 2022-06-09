@@ -9,10 +9,10 @@ if (!isset($_SESSION['login'])) {
 include 'config/koneksi.php';
 $username = $_SESSION['username'];
 if (isset($_SESSION['login'])) {
-    $sql_query = "SELECT * FROM admin WHERE username='$username'";
+    $sql_query = "SELECT * FROM buktii WHERE username='$username'";
     $result = mysqli_query($koneksi, $sql_query);
     $d = mysqli_fetch_array($result);
-    $nama = $d['namalengkap'];
+    $nama = $d['namasiswa'];
    
 }
 ?>
