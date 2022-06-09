@@ -34,18 +34,18 @@ $username = $_SESSION['username'];
                         <div class="modal-body">
                             <form>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Nama</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <label for="namasiswa" class="col-form-label">Nama</label>
+                                    <input type="text" class="form-control" id="namasiswa">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Tanggal</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <label for="tglbayar" class="col-form-label">Tgl Pembayaran</label>
+                                    <input type="date" class="form-control" id="tglbayar">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Bukti Pembayaran</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <label for="bktbayar" class="col-form-label">Upload Bukti Pembayaran</label>
+                                    <input type="file" class="form-control" id="bktbayar">
                                 </div>
                             </form>
                         </div>
@@ -96,7 +96,7 @@ $username = $_SESSION['username'];
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    Klik CETAK jika ingin mencetakm faktur, jika klik Close.
+                                                    Klik CETAK jika ingin mencetak faktur, jika tidak klik Close.
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
