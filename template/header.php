@@ -5,7 +5,17 @@ if (!isset($_SESSION['login'])) {
 }
 
 ?>
-
+<?php
+include 'config/koneksi.php';
+$username = $_SESSION['username'];
+if (isset($_SESSION['login'])) {
+    $sql_query = "SELECT * FROM admin WHERE username='$username'";
+    $result = mysqli_query($koneksi, $sql_query);
+    $d = mysqli_fetch_array($result);
+    $nama = $d['namalengkap'];
+   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,10 +56,8 @@ if (!isset($_SESSION['login'])) {
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SIAP-Bayar</div>
+                <img src="logo/perancangan prak mobile 2022.png" width="60px" />
+                <div class="sidebar-brand-text mx-2">SIAP-Bayar</div>
             </a>
 
             <!-- Divider -->
@@ -212,7 +220,7 @@ if (!isset($_SESSION['login'])) {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $nama; ?> </span>
-                                <img class="img-profile rounded-circle" src="<?php echo "file/" . $d['foto']; ?>">
+                                <!-- <img class="img-profile rounded-circle" src="<?php echo "file/" . $d['foto']; ?>"> -->
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

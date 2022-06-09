@@ -15,6 +15,7 @@ if (isset($_POST['simpan'])) {
             $_SESSION['login']    = true;
             $_SESSION['id']        = $d['idadmin'];
             $_SESSION['username'] = $d['username'];
+            $_SESSION['status'] = "login";
 
             header('location:./index.php');
         } else {

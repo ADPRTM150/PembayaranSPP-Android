@@ -1,26 +1,26 @@
 <?php
-include 'koneksi.php';
+include 'config/koneksi.php';
 ?>
- <!-- Footer -->
- <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SIAP-<em>bayar </em><?= date('Y'); ?> <em class="badge badge-info"> beta</em> | Build by Kelompok Android</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; SIAP-<em>bayar </em><?= date('Y'); ?> <em class="badge badge-info"> beta</em> | Build by Kelompok Android</span>
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
+</footer>
+<!-- End of Footer -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
