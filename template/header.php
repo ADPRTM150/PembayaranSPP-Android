@@ -13,7 +13,6 @@ if (isset($_SESSION['login'])) {
     $result = mysqli_query($koneksi, $sql_query);
     $d = mysqli_fetch_array($result);
     $nama = $d['namasiswa'];
-   
 }
 ?>
 <!DOCTYPE html>
@@ -28,6 +27,11 @@ if (isset($_SESSION['login'])) {
     <meta name="author" content="">
 
     <title>Aplikasi Pembayaran SPP</title>
+    <!-- Fancy Box -->
+    <script type="text/javascript">
+        $("[data-fancybox]").fancybox({});
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
