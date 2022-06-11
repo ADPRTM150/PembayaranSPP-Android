@@ -32,26 +32,27 @@ $username = $_SESSION['username'];
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form action="" method="POST" enctype="multipart/form-data" role="form">
                                 <div class="form-group">
                                     <label for="namasiswa" class="col-form-label">Nama</label>
-                                    <input type="text" class="form-control" id="namasiswa">
+                                    <input type="text" class="form-control" name="namasiswa" readonly value="<?php echo $d['namasiswa']; ?>">
+                                    <input type="hidden" name="idsiswa" value="<?php echo $d['idsiswa']; ?>">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="tglbayar" class="col-form-label">Tgl Pembayaran</label>
-                                    <input type="date" class="form-control" id="tglbayar">
+                                    <input type="date" class="form-control" name="tglbayar">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="bktbayar" class="col-form-label">Upload Bukti Pembayaran</label>
-                                    <input type="file" class="form-control" id="bktbayar">
+                                    <input type="file" class="form-control" name="bktbayar">
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">BAYAR</button>
+                            <button type="submit" name="simpan" class="btn btn-primary">BAYAR</button>
                         </div>
                     </div>
                 </div>
@@ -71,7 +72,23 @@ $username = $_SESSION['username'];
                         <?php
                         include 'config/koneksi.php';
                         $no = 1;
-                        $data = mysqli_query($koneksi, "select * from buktii");
+                        $idadmin = $_SESSION['id'];
+                        if (isset($_SESSION['status'])) {
+                            $sql_query = "SELECT * FROM buktii WHERE idadmin='$idadmin'";
+                            $result = mysqli_query($koneksi, $sql_query);
+                            $d = mysqli_fetch_array($result);
+                            $idsiswa = $d['idsiswa'];
+                            if (!empty($idsiswa)) {
+                                // perintah tampil data berdasarkan periode bulan
+                                $data = mysqli_query($koneksi, "SELECT * from buktii where idsiswa=$idsiswa");
+                            } else {
+                                // perintah tampil semua data
+                                $data = mysqli_query($koneksi, "SELECT * from buktii");
+                            }
+                        } else {
+                            // perintah tampil semua data
+                            $data = mysqli_query($koneksi, "SELECT * from buktii");
+                        }
                         while ($d = mysqli_fetch_array($data)) {
                         ?>
                             <tr>
@@ -100,12 +117,11 @@ $username = $_SESSION['username'];
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">CETAK</button>
+                                                    <button type="submit" name="cetak" class="btn btn-primary">CETAK</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                             </tr>
                         <?php
                         }
@@ -115,17 +131,36 @@ $username = $_SESSION['username'];
             </div>
         </div>
     </div>
-    <!-- Content Row -->
-    <div class="row">
-
-
-
-    </div>
+   
     <!-- Begin Page Content -->
 
     <!-- /.container-fluid -->
 
 </div>
+
+<?php
+
+if (isset($_POST['simpan'])) {
+    // menangkap data yang di kirim dari form
+    $idsiswa        = $_POST['idsiswa'];
+    $tglbayar            = $_POST['tglbayar'];
+
+    $idadmin = $_POST['idsiswa'];
+
+    // menangkap foto
+    $fileName               = $_FILES['bktbayar']['name'];
+    $tmpNama                = $_FILES['bktbayar']['tmp_name'];
+
+    // Simpan di Folder Gambar
+    copy($tmpNama, "file/" . $fileName);
+    // menginput data ke database
+    $query = mysqli_query($koneksi, "INSERT into spp values('','$idsiswa','$tglbayar','$fileName','$idadmin')") or die(mysqli_error($koneksi));
+    echo "<script> alert ('Data Behasil di Tambahkan');
+    document.location='index.php';
+
+</script>";
+}
+?>
 
 <?php
 include "template/footer.php";
