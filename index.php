@@ -34,26 +34,27 @@ $username = $_SESSION['username'];
                         <div class="modal-body">
                             <form action="" method="POST" enctype="multipart/form-data" role="form">
                                 <div class="form-group">
-                                    <label for="namasiswa" class="col-form-label">Nama</label>
+                                    <label for="idsiswa" class="col-form-label">Nama :</label>
                                     <input type="text" class="form-control" name="namasiswa" readonly value="<?php echo $d['namasiswa']; ?>">
                                     <input type="hidden" name="idsiswa" value="<?php echo $d['idsiswa']; ?>">
-                                    <input type="hidden" name="idadmin" value="<?php echo $d['idsiswa']; ?>">
+                                    <input type="hidden" name="idadmin" value="<?php echo $d['idadmin']; ?>">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="tglbayar" class="col-form-label">Tgl Pembayaran</label>
+                                    <label for="tglbayar" class="col-form-label">Tanggal Pembayaran :</label>
                                     <input type="date" class="form-control" name="tglbayar">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="bktbayar" class="col-form-label">Upload Bukti Pembayaran</label>
+                                    <label for="bktbayar" class="col-form-label">Upload Bukti Pembayar :</label>
                                     <input type="file" class="form-control" name="bktbayar">
                                 </div>
-                            </form>
+
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            <button type="submit" name="simpan" class="btn btn-primary">BAYAR</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" name="simpan" class="btn btn-primary">Bayar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -96,7 +97,7 @@ $username = $_SESSION['username'];
                                 <td align="center"><?php echo $no++; ?></td>
                                 <td><?php echo $d['namasiswa']; ?></td>
                                 <td><?php echo $d['tglbayar']; ?></td>
-                                <td><?php echo $d['bktbayar']; ?></td>
+                                <td><img height=130 src="<?php echo "file/" . $d['bktbayar']; ?>" data-fancybox="Image"></td>
                                 <td align="center">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-primary col-5" data-toggle="modal" data-target="#staticBackdrop">
@@ -141,6 +142,10 @@ $username = $_SESSION['username'];
 
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (isset($_POST['simpan'])) {
     // menangkap data yang di kirim dari form
     $idsiswa        = $_POST['idsiswa'];
@@ -162,6 +167,7 @@ if (isset($_POST['simpan'])) {
 </script>";
 }
 ?>
+
 
 <?php
 include "template/footer.php";
