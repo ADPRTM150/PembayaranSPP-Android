@@ -37,6 +37,7 @@ $username = $_SESSION['username'];
                                     <label for="namasiswa" class="col-form-label">Nama</label>
                                     <input type="text" class="form-control" name="namasiswa" readonly value="<?php echo $d['namasiswa']; ?>">
                                     <input type="hidden" name="idsiswa" value="<?php echo $d['idsiswa']; ?>">
+                                    <input type="hidden" name="idadmin" value="<?php echo $d['idsiswa']; ?>">
                                 </div>
 
                                 <div class="form-group">
@@ -131,7 +132,7 @@ $username = $_SESSION['username'];
             </div>
         </div>
     </div>
-   
+
     <!-- Begin Page Content -->
 
     <!-- /.container-fluid -->
@@ -145,7 +146,7 @@ if (isset($_POST['simpan'])) {
     $idsiswa        = $_POST['idsiswa'];
     $tglbayar            = $_POST['tglbayar'];
 
-    $idadmin = $_POST['idsiswa'];
+    $idadmin = $_POST['idadmin'];
 
     // menangkap foto
     $fileName               = $_FILES['bktbayar']['name'];
