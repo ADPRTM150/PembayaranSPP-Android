@@ -6,7 +6,7 @@ if (isset($_POST['simpan'])) {
 
    
         include "config/koneksi.php";
-        $sqlLogin = mysqli_query($koneksi, "SELECT * FROM admin 
+        $sqlLogin = mysqli_query($koneksi, "SELECT * FROM buktii 
 						WHERE username='$user' AND password='$pass'");
         $jml = mysqli_num_rows($sqlLogin);
         $d = mysqli_fetch_array($sqlLogin);
@@ -16,8 +16,9 @@ if (isset($_POST['simpan'])) {
             $_SESSION['id']        = $d['idadmin'];
             $_SESSION['username'] = $d['username'];
             $_SESSION['status'] = "login";
+            $_SESSION['bktbayr'] = $d['bktbayar'];
 
-            header('location:./index.php');
+            header('location:index.php');
         } else {
             header("location:login.php");
         }

@@ -60,7 +60,7 @@ $username = $_SESSION['username'];
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" onSubmit="validasi()">
                     <thead>
                         <tr>
                             <th>No.</th>
@@ -97,10 +97,10 @@ $username = $_SESSION['username'];
                                 <td align="center"><?php echo $no++; ?></td>
                                 <td><?php echo $d['namasiswa']; ?></td>
                                 <td><?php echo $d['tglbayar']; ?></td>
-                                <td><img height=130 src="<?php echo "file/" . $d['bktbayar']; ?>" data-fancybox="Image"></td>
+                                <td id="bktbayar"><img height=130 src="<?php echo "file/" . $d['bktbayar']; ?>" data-fancybox="Image"></td>
                                 <td align="center">
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary col-5" data-toggle="modal" data-target="#staticBackdrop">
+                                    <button type="button" class="btn btn-primary col-5" data-toggle="modal" data-target="#staticBackdrop <?php echo $d['bktbayar']; ?>" data-whatever="<?php echo $d['bktbayar']; ?>">
                                         <i class="fas fa-print"></i>
                                     </button>
 
@@ -119,7 +119,7 @@ $username = $_SESSION['username'];
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                    <button type="submit" name="cetak" class="btn btn-primary">CETAK</button>
+                                                   <a target="" href="pembayaran.php"><button type="submit" name="cetak" class="btn btn-primary">CETAK</button></a>
                                                 </div>
                                             </div>
                                         </div>
